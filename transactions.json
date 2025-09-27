@@ -1,0 +1,233 @@
+[
+    {
+        "_id": "68d808619683f20dd519666b",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-22",
+        "amount": 24.44,
+        "description": "Dining at Dominos",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808629683f20dd519666c",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-22",
+        "amount": 19.74,
+        "description": "Dining at Dominos",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808629683f20dd519666d",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-24",
+        "amount": 11.64,
+        "description": "Entertainment at Netflix",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808629683f20dd519666e",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-26",
+        "amount": 59.99,
+        "description": "Shopping at Target",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808629683f20dd519666f",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-26",
+        "amount": 10.29,
+        "description": "Entertainment at Netflix",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808629683f20dd5196670",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-23",
+        "amount": 12.98,
+        "description": "Dining at Chipotle",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808629683f20dd5196671",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-24",
+        "amount": 83.92,
+        "description": "Groceries at Walmart",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808629683f20dd5196672",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-21",
+        "amount": 16.52,
+        "description": "Dining at Dominos",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808629683f20dd5196673",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-25",
+        "amount": 16.42,
+        "description": "Transport at Uber",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808629683f20dd5196674",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-22",
+        "amount": 5.43,
+        "description": "Coffee at Starbucks",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808639683f20dd5196675",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-21",
+        "amount": 51.34,
+        "description": "Shopping at Target",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808639683f20dd5196676",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-25",
+        "amount": 8.45,
+        "description": "Transport at Uber",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808639683f20dd5196677",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-27",
+        "amount": 22.11,
+        "description": "Shopping at Target",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808639683f20dd5196678",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-26",
+        "amount": 10.39,
+        "description": "Entertainment at Netflix",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808639683f20dd5196679",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-25",
+        "amount": 4.46,
+        "description": "Coffee at Starbucks",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808639683f20dd519667a",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-24",
+        "amount": 7.95,
+        "description": "Coffee at Starbucks",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808639683f20dd519667b",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-21",
+        "amount": 70.09,
+        "description": "Groceries at Walmart",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808639683f20dd519667c",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-26",
+        "amount": 7.93,
+        "description": "Coffee at Starbucks",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808639683f20dd519667d",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-23",
+        "amount": 10.1,
+        "description": "Entertainment at Netflix",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808639683f20dd519667e",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-21",
+        "amount": 73.08,
+        "description": "Shopping at Target",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    },
+    {
+        "_id": "68d808639683f20dd519667f",
+        "merchant_id": "57cf75cea73e494d8675ec49",
+        "medium": "balance",
+        "purchase_date": "2025-09-26",
+        "amount": 46.46,
+        "description": "Groceries at Walmart",
+        "status": "pending",
+        "type": "merchant",
+        "payer_id": "68d808619683f20dd519666a"
+    }
+]
