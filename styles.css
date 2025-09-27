@@ -1,0 +1,137 @@
+/* --- Main background --- */
+.main {
+    background: linear-gradient(135deg, #d492ba 30%, #a982bb 70%);
+    color: #f5f5f5;
+    padding: 2rem;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* --- Header --- */
+.header-container {
+    background: rgba(255, 255, 255, 0.2); /* semi-transparent glass */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* --- Feature Cards / Metric Cards --- */
+.feature-card, .metric-card {
+    background: rgba(255, 255, 255, 0.1); /* glass effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 1rem 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+
+.feature-card:hover, .metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
+/* --- Navigation Bar --- */
+.nav-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+/* --- Buttons --- */
+.stButton > button {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* --- Text --- */
+.custom-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #FFD699; /* bright title for contrast */
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    text-align: center;
+    opacity: 0.85;
+    margin-bottom: 2rem;
+    color: #f5f5f5;
+}
+
+/* --- Hide Streamlit default elements --- */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Scrollable log box */
+/* Scrollable log box */
+/* --- Scrollable Glass Log Box --- */
+.log-box {
+    max-height: 300px;           /* fixed height for scrolling */
+    overflow-y: auto;
+    width: fit-content;            /* vertical scroll */
+    padding: 1rem;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.15); /* translucent glass */
+    backdrop-filter: blur(10px);           /* glass blur effect */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #f5f5f5;
+    margin-bottom: 1rem;
+}
+
+/* Optional: custom scrollbar for aesthetics */
+.log-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.log-box::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+
+.log-box::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+}
+
+.log-entry {
+    padding: 4px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.log-entry:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
