@@ -1,4 +1,4 @@
-print("Hello World")
+print(" World")
 import openai
 
 '''
