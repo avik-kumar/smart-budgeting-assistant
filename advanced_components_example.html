@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CSS Components Demo</title>
+    <link rel="stylesheet" href="styles_advanced.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            padding: 2rem;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .demo-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="fade-in-up">Advanced CSS Components Demo</h1>
+        <p class="fade-in-up">These components can be integrated into your Streamlit app by adding the appropriate CSS classes.</p>
+
+        <div class="demo-section">
+            <h2>Loading & Progress</h2>
+            <div class="demo-grid">
+                <div>
+                    <h3>Loading Spinner</h3>
+                    <div class="loading-spinner"></div>
+                </div>
+                <div>
+                    <h3>Progress Bar (75%)</h3>
+                    <div class="progress-bar" style="--progress: 75%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Interactive Components</h2>
+            <div class="demo-grid">
+                <div>
+                    <h3>Toggle Switch</h3>
+                    <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+                </div>
+                <div>
+                    <h3>Ripple Button</h3>
+                    <button class="ripple-effect" style="padding: 1rem 2rem; background: linear-gradient(135deg, #667eea, #f093fb); color: white; border: none; border-radius: 10px; cursor: pointer;">
+                        Click Me
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Skeleton Loading</h2>
+            <div class="demo-grid">
+                <div>
+                    <div class="skeleton skeleton-avatar"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                </div>
+                <div>
+                    <div class="skeleton skeleton-card"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Advanced Effects</h2>
+            <div class="demo-grid">
+                <div class="glow-on-hover" style="padding: 2rem; background: rgba(255, 255, 255, 0.1); border-radius: 15px; text-align: center;">
+                    <h3>Glow on Hover</h3>
+                    <p>Hover over this card</p>
+                </div>
+                <div class="bounce-in" style="padding: 2rem; background: rgba(255, 255, 255, 0.1); border-radius: 15px; text-align: center;">
+                    <h3>Bounce Animation</h3>
+                    <p>Animated entrance</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="fab" onclick="showToast()">💬</button>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        This is a toast notification!
+    </div>
+
+    <!-- Modal Example -->
+    <div id="modal" class="modal-overlay" onclick="if(event.target === this) hideModal()">
+        <div class="modal-content">
+            <h2>Modal Dialog</h2>
+            <p>This is a modal dialog with glassmorphism effect.</p>
+            <button onclick="hideModal()" style="padding: 0.5rem 1rem; background: linear-gradient(135deg, #667eea, #f093fb); color: white; border: none; border-radius: 10px; cursor: pointer; margin-top: 1rem;">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+                toast.classList.add('hide');
+                setTimeout(() => toast.classList.remove('hide'), 400);
+            }, 3000);
+        }
+
+        function showModal() {
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function hideModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // Show modal on FAB click for demo
+        document.querySelector('.fab').addEventListener('click', function(e) {
+            e.preventDefault();
+            showModal();
+        });
+    </script>
+</body>
+</html>
