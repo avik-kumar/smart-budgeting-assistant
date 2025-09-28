@@ -1,41 +1,192 @@
-/* --- Main background --- */
-.main {
-    background: linear-gradient(135deg, #d492ba 30%, #a982bb 70%);
-    color: #f5f5f5;
-    padding: 2rem;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    min-height: 100vh;
+
+/* Centered landing container */
+.landing-container {
+    text-align: center;
+    margin: 5rem auto 3rem auto;
+    max-width: 800px;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
 }
 
-/* --- Header --- */
+.company-name {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    color: #555;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+    width: 100%;
+}
+
+.description {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #666;
+    text-align: center;
+}
+/* Static elegant dashboard background */
+.stApp {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #f5f5f5;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Main content area with better centering */
+.main .block-container {
+    background: transparent;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Enhanced Header with Glassmorphism --- */
 .header-container {
-    background: rgba(255, 255, 255, 0.2); /* semi-transparent glass */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 2.5rem;
+    border-radius: 25px;
+    margin-bottom: 3rem;
+    text-align: center;
+    border: 2px solid;
+    border-image: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.3) 100%) 1;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 10px 20px rgba(0, 0, 0, 0.15),
+        inset 0 2px 10px rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: headerEntrance 1.2s ease-out;
+}
+
+.header-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.6), 
+        transparent);
+}
+
+@keyframes headerEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* --- Enhanced Cards with React-like Animations --- */
+.feature-card, .metric-card {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.2) 0%, 
+        rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 2rem;
     border-radius: 20px;
-    margin-bottom: 2rem;
+    margin: 1rem 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    animation: cardEntrance 0.6s ease-out both;
 }
 
-/* --- Feature Cards / Metric Cards --- */
-.feature-card, .metric-card {
-    background: rgba(255, 255, 255, 0.1); /* glass effect */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin: 1rem 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+.metric-card:nth-child(1) { animation-delay: 0.1s; }
+.metric-card:nth-child(2) { animation-delay: 0.2s; }
+.metric-card:nth-child(3) { animation-delay: 0.3s; }
+.metric-card:nth-child(4) { animation-delay: 0.4s; }
+
+.feature-card::before, .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent);
+    transition: left 0.6s ease;
+}
+
+.feature-card:hover::before, .metric-card:hover::before {
+    left: 100%;
 }
 
 .feature-card:hover, .metric-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.25),
+        0 10px 20px rgba(102, 126, 234, 0.15),
+        inset 0 2px 10px rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.feature-card:active, .metric-card:active {
+    transform: translateY(-5px) scale(1.01);
+    transition: all 0.1s ease;
+}
+
+@keyframes cardEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Enhanced metric card typography */
+.metric-card h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #f093fb, #667eea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 /* --- Navigation Bar --- */
@@ -53,85 +204,785 @@
     box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
 
-/* --- Buttons --- */
+/* --- Enhanced Modern Buttons --- */
 .stButton > button {
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 0.75rem 2rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.9) 0%, 
+        rgba(118, 75, 162, 0.9) 50%,
+        rgba(240, 147, 251, 0.9) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    color: white !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 30px !important;
+    padding: 1rem 2.5rem !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 
+        0 10px 30px rgba(102, 126, 234, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+}
+
+.stButton > button::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    ) !important;
+    transition: left 0.6s ease !important;
+}
+
+.stButton > button:hover::before {
+    left: 100% !important;
 }
 
 .stButton > button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transform: translateY(-4px) scale(1.02) !important;
+    box-shadow: 
+        0 20px 40px rgba(102, 126, 234, 0.4),
+        0 10px 20px rgba(240, 147, 251, 0.3),
+        inset 0 2px 10px rgba(255, 255, 255, 0.4) !important;
+    background: linear-gradient(135deg, 
+        rgba(118, 143, 240, 1) 0%, 
+        rgba(138, 92, 184, 1) 50%,
+        rgba(255, 167, 251, 1) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
-/* --- Text --- */
+.stButton > button:active {
+    transform: translateY(-2px) scale(1.01) !important;
+    transition: all 0.1s ease !important;
+}
+
+/* --- Selectbox styling --- */
+.stSelectbox > div > div {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 15px !important;
+    color: white !important;
+}
+
+/* --- Enhanced Typography --- */
 .custom-title {
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-size: 4rem;
+    font-weight: 900;
     text-align: center;
-    margin-bottom: 1rem;
-    color: #FFD699; /* bright title for contrast */
+    margin: 0 auto 1.5rem auto;
+    background: linear-gradient(135deg, #f093fb 0%, #667eea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleEntrance 1.2s ease-out;
+    position: relative;
+    letter-spacing: 2px;
+    width: 100%;
+    display: block;
+}
+
+.custom-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #f093fb);
+    border-radius: 2px;
+    animation: titleUnderline 1.2s ease-out 0.5s both;
+}
+
+@keyframes titleEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes titleUnderline {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 100px;
+        opacity: 1;
+    }
 }
 
 .subtitle {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     text-align: center;
-    opacity: 0.85;
-    margin-bottom: 2rem;
-    color: #f5f5f5;
+    opacity: 0.9;
+    margin: 0 auto 2.5rem auto;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 300;
+    letter-spacing: 1px;
+    animation: subtitleEntrance 1.2s ease-out 0.3s both;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: block;
+}
+
+@keyframes subtitleEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+}
+
+/* --- Landing Page Specific --- */
+.main-container {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 4rem 3rem;
+    margin: 3rem auto;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+}
+
+.company-name {
+    font-size: 5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FFD699 0%, #FFEB99 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    margin: 0 auto 1rem auto;
+    letter-spacing: 3px;
+    text-shadow: 0 0 30px rgba(255, 214, 153, 0.3);
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 auto 2rem auto;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 100%;
+}
+
+.description {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin: 0 auto 3rem auto;
+    font-weight: 400;
+    max-width: 600px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Accent elements for landing */
+.accent-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #FFD699, #FFEB99);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 214, 153, 0.8);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 0.7; transform: scale(1); }
+}
+
+.accent-dot.top-left {
+    top: 30px;
+    left: 30px;
+}
+
+.accent-dot.top-right {
+    top: 30px;
+    right: 30px;
+}
+
+.accent-dot.bottom-left {
+    bottom: 30px;
+    left: 30px;
+}
+
+.accent-dot.bottom-right {
+    bottom: 30px;
+    right: 30px;
+}
+
+/* --- Enhanced Transaction Log Container --- */
+.transaction-container {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 2.5rem;
+    border-radius: 25px;
+    margin: 2rem 0;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.2),
+        0 15px 30px rgba(0, 0, 0, 0.1),
+        inset 0 2px 10px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 10px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: transactionEntrance 0.8s ease-out 0.6s both;
+}
+
+.transaction-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.8), 
+        transparent);
+    border-radius: 2px 2px 0 0;
+}
+
+.transaction-container::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    border-radius: 1px;
+}
+
+.transaction-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 35px 70px rgba(0, 0, 0, 0.25),
+        0 20px 40px rgba(102, 126, 234, 0.15),
+        inset 0 3px 15px rgba(255, 255, 255, 0.4),
+        inset 0 -3px 15px rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes transactionEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        backdrop-filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        backdrop-filter: blur(25px);
+    }
+}
+
+.log-box {
+    max-height: 400px;
+    overflow-y: auto;
+    width: 100%;
+    padding: 0;
+    border-radius: 15px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    position: relative;
+    margin-bottom: 0;
+}
+
+/* Modern scrollbar design */
+.log-box::-webkit-scrollbar {
+    width: 12px;
+}
+
+.log-box::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    margin: 5px;
+}
+
+.log-box::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.6), 
+        rgba(240, 147, 251, 0.6));
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.log-box::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.8), 
+        rgba(240, 147, 251, 0.8));
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced log entries with improved hover effects */
+.log-entry {
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    border-radius: 15px;
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.12) 0%, 
+        rgba(255, 255, 255, 0.05) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: logEntryEntrance 0.6s ease-out both;
+}
+
+.log-entry::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(135deg, #667eea, #f093fb);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.log-entry:hover::before {
+    transform: scaleY(1);
+}
+
+.log-entry:hover {
+    transform: translateX(12px) scale(1.02);
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.2) 0%, 
+        rgba(102, 126, 234, 0.1) 50%,
+        rgba(255, 255, 255, 0.1) 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 12px 35px rgba(0, 0, 0, 0.2),
+        0 6px 15px rgba(102, 126, 234, 0.15),
+        inset 0 1px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Staggered entrance animation for log entries */
+@keyframes logEntryEntrance {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+.log-entry:nth-child(1) { animation-delay: 0.1s; }
+.log-entry:nth-child(2) { animation-delay: 0.15s; }
+.log-entry:nth-child(3) { animation-delay: 0.2s; }
+.log-entry:nth-child(4) { animation-delay: 0.25s; }
+.log-entry:nth-child(5) { animation-delay: 0.3s; }
+.log-entry:nth-child(n+6) { animation-delay: 0.35s; }
+
+@keyframes logEntrance {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* --- Content Centering and Layout --- */
+/* Center columns */
+.stColumns {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+/* Center metric cards row */
+.stColumns > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Center main content sections */
+h3 {
+    text-align: center;
+    margin: 2rem auto 1rem auto;
+    width: 100%;
+    display: block;
+}
+
+/* Enhanced Chart Container with Glassmorphism */
+.chart-container-outer {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 2.5rem;
+    border-radius: 25px;
+    margin: 2rem 0;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.2),
+        0 15px 30px rgba(0, 0, 0, 0.1),
+        inset 0 2px 10px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 10px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: chartEntrance 0.8s ease-out 0.8s both;
+}
+
+/* Also keep the old chart-container class for any remaining references */
+.chart-container {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 2.5rem;
+    border-radius: 25px;
+    margin: 2rem 0;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.2),
+        0 15px 30px rgba(0, 0, 0, 0.1),
+        inset 0 2px 10px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 10px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: chartEntrance 0.8s ease-out 0.8s both;
+}
+
+.chart-container-outer::before, .chart-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.8), 
+        transparent);
+    border-radius: 2px 2px 0 0;
+}
+
+.chart-container-outer::after, .chart-container::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    border-radius: 1px;
+}
+
+.chart-container-outer:hover, .chart-container:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 
+        0 35px 70px rgba(0, 0, 0, 0.25),
+        0 20px 40px rgba(102, 126, 234, 0.2),
+        0 10px 20px rgba(240, 147, 251, 0.15),
+        inset 0 3px 15px rgba(255, 255, 255, 0.4),
+        inset 0 -3px 15px rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Add subtle floating animation to all containers */
+.chart-container, .chart-container-outer, .transaction-container {
+    animation: containerFloat 4s ease-in-out infinite;
+}
+
+@keyframes containerFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes chartEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        backdrop-filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        backdrop-filter: blur(25px);
+    }
+}
+
+/* Center plotly charts */
+.stPlotlyChart {
+    display: flex;
+    justify-content: center;
+    background: transparent !important;
 }
 
 /* --- Hide Streamlit default elements --- */
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
+.stDeployButton {visibility: hidden;}
 
-/* Scrollable log box */
-/* Scrollable log box */
-/* --- Scrollable Glass Log Box --- */
-.log-box {
-    max-height: 300px;           /* fixed height for scrolling */
-    overflow-y: auto;
-    width: fit-content;            /* vertical scroll */
-    padding: 1rem;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.15); /* translucent glass */
-    backdrop-filter: blur(10px);           /* glass blur effect */
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: #f5f5f5;
-    margin-bottom: 1rem;
+/* --- Responsive design --- */
+@media (max-width: 768px) {
+    .company-name {
+        font-size: 3.5rem;
+    }
+    
+    .description {
+        font-size: 1.2rem;
+    }
+    
+    .main-container {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    .custom-title {
+        font-size: 2.5rem;
+    }
+}
+/* --- Enhanced Login Box with Gloss Effect --- */
+.login-container {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 3rem 2.5rem;
+    border-radius: 25px;
+    max-width: 480px;
+    margin: 3rem auto 4rem auto;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        0 15px 30px rgba(0, 0, 0, 0.15),
+        inset 0 2px 10px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 10px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: loginEntrance 1s ease-out 0.5s both;
+    transform: translateY(0);
 }
 
-/* Optional: custom scrollbar for aesthetics */
-.log-box::-webkit-scrollbar {
-    width: 8px;
+/* Enhanced gloss overlay for login box */
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.8), 
+        transparent);
+    border-radius: 2px 2px 0 0;
 }
 
-.log-box::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.05);
-    border-radius: 10px;
+.login-container::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    border-radius: 1px;
 }
 
-.log-box::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.3);
-    border-radius: 10px;
+@keyframes loginEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+        backdrop-filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        backdrop-filter: blur(25px);
+    }
 }
 
-.log-entry {
-    padding: 4px;
-    margin-bottom: 4px;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Enhanced login form fields */
+.login-container .stTextInput > div > div input {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.2) 0%, 
+        rgba(255, 255, 255, 0.1) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 15px !important;
+    padding: 1rem !important;
+    color: #fff !important;
+    font-size: 1rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
 }
 
-.log-entry:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+.login-container .stTextInput > div > div input:focus {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(255, 255, 255, 0.15) 100%) !important;
+    box-shadow: 
+        0 0 0 3px rgba(102, 126, 234, 0.3),
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        inset 0 2px 5px rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px) !important;
+}
+
+.login-container .stTextInput > div > div input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 300 !important;
+}
+
+/* Enhanced login button */
+.login-container .stButton > button {
+    width: 100% !important;
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.9) 0%, 
+        rgba(118, 75, 162, 0.9) 50%,
+        rgba(240, 147, 251, 0.9) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    padding: 1rem 2rem !important;
+    border-radius: 15px !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    box-shadow: 
+        0 10px 30px rgba(102, 126, 234, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    margin-top: 1.5rem !important;
+}
+
+.login-container .stButton > button::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent) !important;
+    transition: left 0.6s ease !important;
+}
+
+.login-container .stButton > button:hover::before {
+    left: 100% !important;
+}
+
+.login-container .stButton > button:hover {
+    transform: translateY(-4px) scale(1.02) !important;
+    box-shadow: 
+        0 20px 40px rgba(102, 126, 234, 0.4),
+        0 10px 25px rgba(240, 147, 251, 0.3),
+        inset 0 2px 10px rgba(255, 255, 255, 0.4) !important;
+    background: linear-gradient(135deg, 
+        rgba(118, 143, 240, 1) 0%, 
+        rgba(138, 92, 184, 1) 50%,
+        rgba(255, 167, 251, 1) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.login-container .stButton > button:active {
+    transform: translateY(-2px) scale(1.01) !important;
+    transition: all 0.1s ease !important;
 }
