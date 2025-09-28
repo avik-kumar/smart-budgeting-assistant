@@ -7,12 +7,14 @@ from google import genai
 from google.genai import types
 from datetime import datetime, timedelta
 from collections import defaultdict
+from get_transactions import fetch_trans
 
 API_KEY = os.getenv("GEMINI_API_KEY")
 
 # Load transactions
-with open("transactions.json") as f:
-    transactions = json.load(f)
+# with open("transactions.json") as f:
+#     transactions = json.load(f)
+transactions = fetch_trans(2) 
 
 # Streamlit page config
 st.set_page_config(page_title="Financial Journal", layout="centered")

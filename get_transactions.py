@@ -12,8 +12,6 @@ def fetch_trans(id):
     account_url = f"{BASE_URL}/customers/{CUSTOMER_ID}/accounts?key={API_KEY}"
     account_response = requests.get(account_url)
 
-    print("Account request status:", account_response.status_code)
-
     if account_response.status_code == 200:
         accounts = account_response.json()
         if accounts:
@@ -39,10 +37,7 @@ def fetch_trans(id):
             "response": response.json()
         }
 
-    # Write to output.json
-    with open("output.json", "w") as f:
-        json.dump(purchases, f, indent=4)
+    for purchase in purchases:
+        purchase['status'] = "executed"
 
-
-    print("Saved API response to output.json")
     return purchases

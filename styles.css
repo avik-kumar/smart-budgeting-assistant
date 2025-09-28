@@ -826,3 +826,56 @@ header {visibility: hidden;}
 /* Login container class removed - using default Streamlit styling */
 
 /* Login styling removed - using default Streamlit form styling */
+.login-card [data-testid="stForm"] {
+    background: linear-gradient(145deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 420px;
+    margin: 0 auto 0 auto;
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Improve spacing on inputs within forms */
+.login-card [data-testid="stForm"] .stTextInput, .login-card [data-testid="stForm"] .stPasswordInput, .login-card [data-testid="stForm"] .stButton {
+    margin-top: 0.5rem;
+}
+
+/* Center and tighten the headers */
+.block-container h2, .block-container .stSubheader {
+    text-align: center;
+}
+
+/* Chat message polish */
+[data-testid="stChatMessage"] {
+    background: linear-gradient(145deg,
+        rgba(255, 255, 255, 0.18) 0%,
+        rgba(255, 255, 255, 0.06) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.6rem;
+}
+
+/* Chat input full width and glass card */
+.chat-input-card [data-testid="stForm"] {
+    width: 100% !important;
+    max-width: none !important;
+    background: linear-gradient(145deg,
+        rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 100%);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 18px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+/* Make the textarea fill the width */
+.chat-input-card [data-baseweb="textarea"] textarea {
+    width: 100% !important;
+}
