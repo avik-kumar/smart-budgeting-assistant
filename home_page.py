@@ -48,8 +48,7 @@ if not st.session_state.authenticated:
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
-    # Login form
-    st.markdown('<div class="login-container">', unsafe_allow_html=True)
+    # Login form (simplified without glossy container)
     st.subheader("🔐 Login to Continue")
     with st.form("login_form"):
         username = st.text_input("Username")
@@ -63,7 +62,6 @@ if not st.session_state.authenticated:
             st.rerun()
         else:
             st.error("❌ Invalid username or password")
-    st.markdown("</div>", unsafe_allow_html=True)
 
 # --- Authenticated: Dashboard ---
 else:
