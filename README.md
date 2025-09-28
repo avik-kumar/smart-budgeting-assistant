@@ -1,4 +1,4 @@
-#Finn: Your AI "Finn"ancial Advisor
+# Finn: Your AI "Finn"ancial Advisor
 ## Inspiration
 The inspiration for **Finn** came from our own lives as first-year college students. This is our first time being away from home, and our first time managing our own money without much oversight. This additional freedom comes with questions and headaches, that serves as obstacle for new banking clients. Bankers are often inaccessible for small questions and are not heavily personalized and that is where Finn comes in.
 
@@ -6,11 +6,11 @@ The inspiration for **Finn** came from our own lives as first-year college stude
 Finn serves as a general purpose financial advisor, and breaks down the early hurdles for new clients. Finn presents recent transaction data, highlights your monthly spending, and provides you with helpful budgeting tips. 
 
 ## How we built it
-###Using Nessie API
+### Using Nessie API
 The majority of Finn is built in Python with implementation of Capital One's Hackathon API, Nessie. The Nessie API is used to store the user's transaction data, and allow it to be accessible across the project. The use of the API also enables scalability and future improvements that will be detailed further. The Nessie API made fetching the user's data easy, and allowed for easier organization of data across the project. 
-###Using Streamlit
+### Using Streamlit
 After the API was used to create the data for our customers, the next step was the dashboard for the user. The dashboard was created in the Streamlit library with Python, allowing for a stylistic website in a timely manner. CSS was implemented with Streamlit in order to make the site even more aesthetically pleasing and improve user satisfaction.
-###Using Gemini
+### Using Gemini
 The next part of the project was actually implementing the AI chatbot. This was done using Google Gemini's API. The AI was trained to specifically focus on financial questions and provide information relevant to the user's transactions and purchases
 
 ## Challenges we ran into
