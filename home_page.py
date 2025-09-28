@@ -239,51 +239,106 @@ else:
             f"<div class='log-entry'>{date_str}: {desc} (${abs(amount):,.2f})</div>"
         )
 
-    category_totals = (
-        df.groupby("category", as_index=False)["amount"].sum() if not df.empty else pd.DataFrame(columns=["category", "amount"])
-    )
-    fig = px.bar(
+    # Prepare data for three charts
+    if not df.empty:
+        # Monthly totals by category (bar chart)
+        category_totals = df.groupby("category", as_index=False)["amount"].sum()
+        
+        # Past week's data (pie chart)
+        week_ago = pd.Timestamp.now() - pd.Timedelta(days=7)
+        df_week = df[df["date"] >= week_ago] if "date" in df.columns else df
+        week_category_totals = df_week.groupby("category", as_index=False)["amount"].sum()
+        
+        # Daily expenditure over month (line chart)
+        daily_totals = df.groupby(df["date"].dt.date)["amount"].sum().reset_index()
+        daily_totals["date"] = pd.to_datetime(daily_totals["date"])
+        daily_totals = daily_totals.sort_values("date")
+    else:
+        category_totals = pd.DataFrame(columns=["category", "amount"])
+        week_category_totals = pd.DataFrame(columns=["category", "amount"])
+        daily_totals = pd.DataFrame(columns=["date", "amount"])
+    
+    # Create three charts
+    # 1. Monthly totals bar chart
+    fig1 = px.bar(
         category_totals,
         x="category",
         y="amount",
-        labels={"category": "Spending Category", "amount": "Amount ($)"},
+        labels={"category": "Category", "amount": "Amount ($)"},
         title="Monthly Spending by Category",
     )
-    fig.update_traces(hoverinfo="skip")
-    fig.update_layout(
+    fig1.update_traces(hoverinfo="skip")
+    fig1.update_layout(
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(255,255,255,0)",
         font_color="#333",
-        title_font_size=16,
+        title_font_size=14,
         showlegend=False,
+        height=300,
     )
-    fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(showgrid=True, gridcolor="rgba(139,69,19,0.2)")
+    fig1.update_xaxes(showgrid=False)
+    fig1.update_yaxes(showgrid=True, gridcolor="rgba(139,69,19,0.2)")
+    
+    # 2. Weekly pie chart
+    fig2 = px.pie(
+        week_category_totals,
+        values="amount",
+        names="category",
+        title="Past Week's Expenses",
+    )
+    fig2.update_layout(
+        paper_bgcolor="rgba(255,255,255,0)",
+        font_color="#333",
+        title_font_size=14,
+        height=300,
+    )
+    
+    # 3. Daily expenditure line chart
+    fig3 = px.line(
+        daily_totals,
+        x="date",
+        y="amount",
+        labels={"date": "Date", "amount": "Amount ($)"},
+        title="Daily Expenditure This Month",
+        markers=True,
+    )
+    fig3.update_layout(
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(255,255,255,0)",
+        font_color="#333",
+        title_font_size=14,
+        showlegend=False,
+        height=300,
+    )
+    fig3.update_xaxes(showgrid=False)
+    fig3.update_yaxes(showgrid=True, gridcolor="rgba(139,69,19,0.2)")
 
-    c1, c2 = st.columns([1, 2])
-    with c1:
-        st.markdown(
-            """
-        <div class="transaction-container">
-            <h3 style="margin-top: 0; margin-bottom: 1.5rem; text-align: center; color: rgba(255, 255, 255, 0.95); font-size: 1.4rem;">Transaction Log</h3>
-            <div class='log-box'>"""
-            + "".join(logs_html)
-            + """</div>
-        </div>
-            """,
-            unsafe_allow_html=True,
-        )
-    with c2:
-        st.markdown(
-            """
-        <div class="chart-container-outer">
-            <h3 style="margin-top: 0; margin-bottom: 1.5rem; text-align: center; color: rgba(255, 255, 255, 0.95); font-size: 1.4rem;">Spending Overview</h3>
+    # Transaction log section
+    st.markdown(
+        """
+    <div class="transaction-container">
+        <h3 style="margin-top: 0; margin-bottom: 1.5rem; text-align: center; color: rgba(255, 255, 255, 0.95); font-size: 1.4rem;">Transaction Log</h3>
+        <div class='log-box'>"""
+        + "".join(logs_html)
+        + """</div>
+    </div>
         """,
-            unsafe_allow_html=True,
-        )
-        with st.container():
-            st.plotly_chart(fig, use_container_width=True)
-        st.markdown("</div>", unsafe_allow_html=True)
+        unsafe_allow_html=True,
+    )
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Three charts side by side
+    chart_col1, chart_col2, chart_col3 = st.columns(3)
+    
+    with chart_col1:
+        st.plotly_chart(fig1, use_container_width=True)
+    
+    with chart_col2:
+        st.plotly_chart(fig2, use_container_width=True)
+        
+    with chart_col3:
+        st.plotly_chart(fig3, use_container_width=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(
