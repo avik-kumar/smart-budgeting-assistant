@@ -1,9 +1,13 @@
 import requests
 import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 def fetch_trans(id):
     # Hardcoded values
-    API_KEY = "efd6b876162989519b9d60ca403048ff"
+    API_KEY = os.getenv("NESSIE_KEY")
     BASE_URL = "http://api.nessieisreal.com"
     CUSTOMER_IDS = ["68d854ba9683f20dd5196bef", "68d854be9683f20dd5196c20", "68d854c29683f20dd5196c56"]
     CUSTOMER_ID = CUSTOMER_IDS[id]
